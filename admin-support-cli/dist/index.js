@@ -50115,11 +50115,11 @@ async function run () {
       return
     }
     const octokit = github.getOctokit(params.adminToken)
-    await octokit.issues.createComment({
+    await octokit.rest.issues.createComment({
       ...context.repo,
       issue_number: context.payload.issue.number,
       body: `⚠️⚠️ Error: ${e}
-      
+
 <sub>
   Find details of the automation <a href="https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${core.getInput('run_id')}">here</a>.
 </sub>
